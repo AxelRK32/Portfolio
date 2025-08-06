@@ -11,3 +11,6 @@
 
 ## _My contributions to the project_
 
+I worked alongside the other programmers on several of the game's systems, constantly iterating on eachothers code. The parts that I contributed most to was a checkpoint system, debug functions, pause menu, changing controls in settings, code cleaning and adding jucie to the game. 
+
+## - Checkpoint system
