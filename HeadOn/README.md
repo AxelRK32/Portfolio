@@ -180,7 +180,7 @@ The way I made the checkpoint system was to teleport the players body and head w
 </details>
 
 ## - Debug functions
-![]()
+![](https://github.com/AxelRK32/Portfolio/blob/main/HeadOn/Images/Rjr756Ju.png)
 
 At the start of development I made several debug functions for the sake of testing the game throughout development. These included things such as NoClip, Teleporting the head to the body, Teleporting the body to the head, Teleporting between checkpoints and reseting the entire level. Each debug function is tied to a specific number or key combination on the keyboard for easy access, but you first need to input a code to enable debug mode, so the player doesn't have access to the debug functions.
 
