@@ -388,3 +388,91 @@ public class DebugFunctions : MonoBehaviour
 ![](https://github.com/AxelRK32/Portfolio/blob/main/HeadOn/Images/yo8yhfr.png) ![](https://github.com/AxelRK32/Portfolio/blob/main/HeadOn/Images/h86k6uH.png)
 
 I made a simple pause menu that disables player movement and sets the timescale to zero, along with toggling mouse controls and showing some buttons. From the main menu you can access the controls for grabbing and throwing objects. The way I handled the different controls was to utilize Unity's input system that defines inputs as strings. By using a string variable as the input instead of the string, I can easily change grabbing from Fire1 to Fire2 for example. 
+
+<details>
+  <summary>PauseMenu Code</summary>
+
+  ```csharp
+  using UnityEngine;
+
+  public class PauseMenu : MonoBehaviour
+  {
+    [SerializeField] GameObject pauseMenu;
+    bool PausedGame;
+    public bool pausedGame { get { return PausedGame; }  }
+    DebugFunctions debug;
+
+    void Start()
+    {
+        debug = GetComponent<DebugFunctions>();
+        pauseMenu.SetActive(false);
+    }
+
+    void Update()
+    {
+        if (Input.GetButtonDown("Pause"))
+            TogglePauseGame();
+    }
+
+    private void TogglePauseGame()
+    {
+        if (!PausedGame)
+            PauseGame();
+        else 
+            UnpauseGame();
+    }
+
+    private void PauseGame()
+    {
+        Time.timeScale = 0;
+        Cursor.visible = true;
+        debug.DisablePlayerControls();
+        pauseMenu.SetActive(true);
+        PausedGame = true;
+        AudioManager.Instance.PausePlayAllSounds(PausedGame);
+    }
+    public void UnpauseGame()
+    {
+        Time.timeScale = 1;
+        Cursor.visible = false;
+        debug.EnablePlayerControls();
+        pauseMenu.SetActive(false);
+        PausedGame = false;
+        AudioManager.Instance.PausePlayAllSounds(PausedGame);
+    }
+}
+
+  ```
+</details>
+
+<details>
+  <summary>Player controls code snippet</summary>
+
+  ```csharp
+  string pickUpControls = "Fire1";
+  string aimControls = "Fire1";
+  string dropControls = "Fire2";
+
+  ...
+
+  if (PersistentPlayerData.Instance != null)
+        {
+            inputType = PersistentPlayerData.Instance.InputType;
+            flipThrowDirection = PersistentPlayerData.Instance.FlipThrowDirection;
+            //set mouse controls
+            pickUpControls = PersistentPlayerData.Instance.GrabControls;
+            aimControls = PersistentPlayerData.Instance.AimControls;
+            dropControls = PersistentPlayerData.Instance.DropControls;
+        }
+
+  ...
+
+  if (activeInputType == InputType.KeyboardMouse && Input.GetButton(pickUpControls)
+        {
+            aimingEmpty = true;
+            TryGrabGrabable(delta);
+        }
+
+  ...
+  ```
+</details>
