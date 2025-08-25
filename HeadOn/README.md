@@ -20,6 +20,23 @@ The game is split up into different puzzles that contain a puzzle that the playe
 
 The way I made the checkpoint system was to teleport the players body and head whenever they choose to reset. Each checkpoint also have a public gameobject where you can insert the parent object for the associated factory/puzzle. When the player chooses to reset, the checkpoint deletes the puzzle in it's current state and spawns in a copy of the puzzle as it was before to replace it, and effectivaly reseting the puzzle fromm the player point of view. 
 
+  <details>
+  <summary>Click to view C# code</summary>
+
+  ```csharp
+
+  using System;
+
+  class Program
+  {
+      static void Main()
+      {
+          Console.WriteLine("Hello from C#!");
+      }
+  }
+  
+</details>
+
 ## - Debug functions
 ![]()
 
