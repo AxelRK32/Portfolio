@@ -385,6 +385,6 @@ public class DebugFunctions : MonoBehaviour
 </details>
 
 ## - Pause Menu/Changing Controls
-![]()
+![](https://github.com/AxelRK32/Portfolio/blob/main/HeadOn/Images/yo8yhfr.png) ![](https://github.com/AxelRK32/Portfolio/blob/main/HeadOn/Images/h86k6uH.png)
 
 I made a simple pause menu that disables player movement and sets the timescale to zero, along with toggling mouse controls and showing some buttons. From the main menu you can access the controls for grabbing and throwing objects. The way I handled the different controls was to utilize Unity's input system that defines inputs as strings. By using a string variable as the input instead of the string, I can easily change grabbing from Fire1 to Fire2 for example. 
