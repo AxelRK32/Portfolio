@@ -14,4 +14,34 @@ I worked on this game alongside three other programmers. We each got some functi
 ## - Save System/Day Night transition
 The save system I made is tied to the day/night transition that I also made. The way we defined the progress of the game was to assign each day and night it's own scene so that each of them could be changed without affecting the other days. The day/night transition that I made fades the screen and then loads the next scene in the build index.  
 After discussing saving with the rest of the group, we decided it would make the most sense to save after each day/night. In order to not fill the save file with unnecessary data, we always kept the players starting position at his home door, so I didn't have to save the players position and rotation.  
-The only data being saved is: current money and debt, every item in the players inventory and a progress variable as an integer that keeps track of the scene build index. 
+The only data being saved is: current money and debt, every item in the players inventory, some bool variables that check if the player has unlocked certain things, and a progress variable as an integer that keeps track of the scene build index. This data is converted into json which is then saved using PlayerPrefs.
+
+<details>
+  <summary>Save Data</summary>
+  
+  ```csharp
+[Serializable]
+    public class PlayerSaveData
+    {
+        public PlayerSaveData(int progress, int debt, int money, List<string> items, bool canCheat,
+            bool hasDisplayedCheatHint, bool hasDisplayedItemHint)
+        {
+            this.progress = progress;
+            this.debt = debt;
+            this.money = money;
+            this.items = items;
+            this.canCheat = canCheat;
+            this.hasDisplayedCheatHint = hasDisplayedCheatHint;
+            this.hasDisplayedItemHint = hasDisplayedItemHint;
+        }
+
+        public int progress;
+        public int debt;
+        public int money;
+        public List<string> items;
+        public bool canCheat;
+        public bool hasDisplayedCheatHint;
+        public bool hasDisplayedItemHint;
+    }
+  ```
+</details>
