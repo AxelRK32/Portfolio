@@ -165,3 +165,92 @@ public class PersistentPlayerData : SingletonPersistent<PersistentPlayerData>
 }
   ```
 </details>
+
+## - Animations/Sound Effects
+
+One of our artists was responsible for rigging and animation for the characters, and I was responsible for implementing them into the game. Since this game is very focused on story and has a lot of dialogue, we didn't need very many animations aside from an idle and a talking animation. After disscussing it with the programmer who was responsible for the dialogue system, I added a few lines in the dialogue system that switch a bool parameter called IsTalking that switches between the idle and talking animation. By using the same name for the parameter, I can ensure that the characters will play their talking animaion, regardless of which character or animation it is. 
+
+<details>
+  <summary>Code Snippet from Dialogue script</summary>
+
+  ```cs
+  if (animator != null)
+        { 
+            animator.SetBool("IsTalking", true); 
+        }
+        Action _callback = () => { callback.Invoke(); };
+        if (animator != null)
+        { 
+            _callback += () => animator.SetBool("IsTalking", false); 
+        }
+  ```
+</details>
+
+The sound effects are played through a custom audio manager that another programmer made, and most are triggered using events and delegates.  
+The jucie i've added to the game is also triggered from events from other scripts. 
+
+<details>
+  <summary>Example juice code snippet</summary>
+
+  ```cs
+  ...
+
+        private void OnEnable()
+        {
+            MoneyManager.CashUpdated += UpdateCashText;
+            MoneyManager.DebtUpdated += UpdateDebtText;
+            MoneyManager.CashIncreased += IncreaseCashJucie;
+            MoneyManager.CashDecreased += DecreaseCashJuice;
+        }
+
+        private void OnDestroy()
+        {
+            MoneyManager.CashUpdated -= UpdateCashText;
+            MoneyManager.DebtUpdated -= UpdateDebtText;
+            MoneyManager.CashIncreased -= IncreaseCashJucie;
+            MoneyManager.CashDecreased -= DecreaseCashJuice;
+        }
+
+  ...
+
+        private void UpdateCashText(int amount)
+        {
+            _cashText.SetText($"Cash: {amount}");
+        }
+
+        private void UpdateDebtText(int amount)
+        {
+            _debtText.SetText($"Debt: {amount}");
+        }
+
+        private void IncreaseCashJucie(int amount)
+        {
+            if (!starting)
+            {
+                AudioManager.Instance.PlayAudio(addCashSound, Vector3.zero, transform, 0.5f, 1, audioMixer.FindMatchingGroups("Master/Sound"));
+                _cashUpdateText.enabled = true;
+                _cashUpdateText.text = "+" + amount;
+                _cashUpdateText.color = Color.green;
+                CashTextAnimation();
+            }
+
+        }
+        private void DecreaseCashJuice(int amount)
+        {
+            if (!starting)
+            {
+                AudioManager.Instance.PlayAudio(loseCashSound, Vector3.zero, transform, 0.5f, 1, audioMixer.FindMatchingGroups("Master/Sound"));
+                _cashUpdateText.enabled = true;
+                _cashUpdateText.text = amount.ToString();
+                _cashUpdateText.color = Color.red;
+                CashTextAnimation();
+            }
+        }
+        private void CashTextAnimation()
+        {
+            _cashUpdateText.rectTransform.localPosition = new Vector3(100, -70);
+            _cashUpdateText.rectTransform.DOLocalMoveY(-110, 1);
+            _cashUpdateText.DOFade(0, 1.5f);
+        }
+  ```
+</details>
