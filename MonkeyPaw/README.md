@@ -47,6 +47,7 @@ The only data being saved is: current money and debt, every item in the players 
 </details>
 
 ## - Inventory/Shop system
+![]()
 
 The way I made the inventory system was to make it the inventory into singleton so that I could reference it directly when I needed to add or remove an item. I also made a scriptable object to represent each item.
 
