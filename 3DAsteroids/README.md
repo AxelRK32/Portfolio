@@ -14,7 +14,12 @@ Since the asteroids are the central focus of the game, I spent a lot of time twe
 
 <details>
   <summary>Starting nodes snippet for an asteroid</summary>
-  <img src=""/>
+  <img src="https://github.com/AxelRK32/Portfolio/blob/main/3DAsteroids/Images/FFffdd4.png?raw=true" width=800/>
 </details>
 
-The big and medium sized asteroids have custom events that get called when shot by the player. 
+The big and medium sized asteroids have custom events for splitting that get called when shot by the player.  
+
+<details>
+  <summary>Shot and Split node snippet</summary>
+  <img src="https://github.com/AxelRK32/Portfolio/blob/main/3DAsteroids/Images/UjhjHJ45.png?raw=true" width=800/>
+</details>
