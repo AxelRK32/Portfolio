@@ -45,3 +45,122 @@ The only data being saved is: current money and debt, every item in the players 
     }
   ```
 </details>
+
+## - Inventory/Shop system
+
+The way I made the inventory system was to make it the inventory into singleton so that I could reference it directly when I needed to add or remove an item. I also made a scriptable object to represent each item.
+
+<details>
+  <summary>Item object</summary>
+
+  ```cs
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "Item", menuName = "ScriptableObjects/Item", order = 1)]
+public class Item : ScriptableObject
+{
+    public string itemName;
+    public string itemDescription;
+    public Sprite itemIcon;
+    public int price;
+    public bool isBettable = true;
+    public bool isUseable = true;
+    public string onPurchaseCommand;
+}
+  ```
+</details>
+<details>
+  <summary>Player Inventory</summary>
+
+  ```cs
+using AEssentials;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+
+public class PlayerInventory : Singleton<PlayerInventory>
+{
+    public List<Item> Inventory
+    {
+        get { return inventory; }
+    }
+
+    private List<Item> inventory = new();
+    int inventorySlotCount;
+
+    public int InventorySlotCount
+    {
+        get { return inventorySlotCount; }
+        set { inventorySlotCount = value; }
+    }
+
+    void Start()
+    {
+        InitializeInventory();
+    }
+
+    public void AddItem(Item itemToAdd)
+    {
+        inventory.Add(itemToAdd);
+    }
+
+    public void RemoveItem(Item itemToRemove)
+    {
+        inventory.Remove(itemToRemove);
+    }
+
+    public void ClearInventory()
+    {
+        inventory.Clear();
+    }
+
+    void InitializeInventory()
+    {
+        if (SceneManager.GetActiveScene().name != "Menu" && PersistentPlayerData.Instance.HeldItems != null)
+        {
+            foreach (Item item in PersistentPlayerData.Instance.HeldItems)
+            {
+                AddItem(item);
+            }
+        }
+    }
+}
+  ```
+</details>
+
+In order to keep track of the players inventory accross each scene, I also made a persistent singleton class for the players inventory along with other data. That class is also tied to the saving system. Whenever you load a game, it starts by getting the existing data from the playerpref. That data is then used to set the data in PersistentPlayerData. After that, every other script just reference the persistent player data, instead of constantly loading data from playerprefs. 
+
+<details>
+  <summary>Persistent Player Data</summary>
+
+  ```cs
+using System.Collections.Generic;
+using System.Linq;
+using AEssentials;
+using Managers;
+using UnityEngine;
+
+[DefaultExecutionOrder(-1)]
+public class PersistentPlayerData : SingletonPersistent<PersistentPlayerData>
+{
+    public int Cash { get; private set; }
+    public int Debt { get; private set; }
+    public int ProgressIndex { get; private set; }
+    public Transform DoorExit { get; set; }
+    public bool CanCheat { get; set; }
+    public bool HasDisplayedCheatHint { get; set; }
+    public bool HasDisplayedItemHint { get; set; }
+    public List<Item> HeldItems { get; set; }
+
+    public void SetPlayerData(PlayerSaveData playerSaveData)
+    {
+        Cash = playerSaveData.money;
+        Debt = playerSaveData.debt;
+        ProgressIndex = playerSaveData.progress;
+        CanCheat = playerSaveData.canCheat;
+        HasDisplayedCheatHint = playerSaveData.hasDisplayedCheatHint;
+        HasDisplayedItemHint = playerSaveData.hasDisplayedCheatHint;
+        HeldItems = playerSaveData.items?.Select(ItemDatabase.GetItem).Where(x => x != null).ToList() ?? new List<Item>();
+    }
+}
+  ```
+</details>
