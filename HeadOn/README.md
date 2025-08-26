@@ -2,8 +2,8 @@
 
 ![](https://github.com/AxelRK32/Portfolio/blob/main/HeadOn/Images/2rH3l%2B.png)
 
-[itch.io page](https://yrgo-game-creator.itch.io/head-on)  
-[Trailer](https://www.youtube.com/watch?v=OZKcdXMteiw)
+**[itch.io page](https://yrgo-game-creator.itch.io/head-on)**  
+**[Trailer](https://www.youtube.com/watch?v=OZKcdXMteiw)**
 
 ## _A brief game descriptions_
 
