@@ -14,7 +14,7 @@
 I worked alongside the other programmers on several of the game's systems, constantly iterating on eachothers code. The parts that I contributed most to was a checkpoint system, debug functions, pause menu, changing controls in settings, code cleaning and adding jucie to the game. 
 
 ## - Checkpoint system
-![](https://github.com/AxelRK32/Portfolio/blob/main/HeadOn/Images/4fdfgsD.png)
+<img src="https://github.com/AxelRK32/Portfolio/blob/main/HeadOn/Images/4fdfgsD.png?raw=true" width=600/>
 
 The game is split up into different puzzles that contain a puzzle that the player solves in order to progress. The checkpoints are placed at the start of every factory and they place the player and their head there when the player either dies or resets. Reseting also resets the puzzle it's attached to so you're never stuck from solving the puzzle. 
 
@@ -180,7 +180,7 @@ The way I made the checkpoint system was to teleport the players body and head w
 </details>
 
 ## - Debug functions
-![](https://github.com/AxelRK32/Portfolio/blob/main/HeadOn/Images/Rjr756Ju.png)
+<img src="https://github.com/AxelRK32/Portfolio/blob/main/HeadOn/Images/Rjr756Ju.png?raw=true" width=600/>
 
 At the start of development I made several debug functions for the sake of testing the game throughout development. These included things such as NoClip, Teleporting the head to the body, Teleporting the body to the head, Teleporting between checkpoints and reseting the entire level. Each debug function is tied to a specific number or key combination on the keyboard for easy access, but you first need to input a code to enable debug mode, so the player doesn't have access to the debug functions.
 
@@ -385,7 +385,8 @@ public class DebugFunctions : MonoBehaviour
 </details>
 
 ## - Pause Menu/Changing Controls
-![](https://github.com/AxelRK32/Portfolio/blob/main/HeadOn/Images/yo8yhfr.png) ![](https://github.com/AxelRK32/Portfolio/blob/main/HeadOn/Images/h86k6uH.png)
+![](https://github.com/AxelRK32/Portfolio/blob/main/HeadOn/Images/yo8yhfr.png) 
+<img src="https://github.com/AxelRK32/Portfolio/blob/main/HeadOn/Images/h86k6uH.png?raw=true" width=600/>
 
 I made a simple pause menu that disables player movement and sets the timescale to zero, along with toggling mouse controls and showing some buttons. From the main menu you can access the controls for grabbing and throwing objects. The way I handled the different controls was to utilize Unity's input system that defines inputs as strings. By using a string variable as the input instead of the string, I can easily change grabbing from Fire1 to Fire2 for example. 
 
