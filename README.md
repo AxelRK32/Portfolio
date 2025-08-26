@@ -11,7 +11,7 @@ Engine: Unity
 Genre: Puzzle, Platformer  
 Team: 3 Programmers and 4 Artists
 
-![](https://github.com/AxelRK32/Portfolio/blob/main/Images/2rH3l%2B.png)
+<img src="https://github.com/AxelRK32/Portfolio/blob/main/Images/2rH3l%2B.png?raw=true" width=500/>
 
 ---
 ## [_Monkey Paw_](/MonkeyPaw) ← Click for more info 
@@ -21,7 +21,7 @@ Engine: Unity
 Genre: Story, Card game
 Team: 4 Programmers and 3 Artists
 
-![](https://github.com/AxelRK32/Portfolio/blob/main/Images/2Tfm1.png)
+<img src="https://github.com/AxelRK32/Portfolio/blob/main/Images/2Tfm1.png?raw=true" width=500/>
 
 ---
 
@@ -34,3 +34,5 @@ Developed: _2025 march - 2025 april_
 Engine: Unreal Engine 5  
 Genre: Arcade, FPS, Space  
 Team: Just me
+
+<img src="https://github.com/AxelRK32/Portfolio/blob/main/3DAsteroids/Images/dsfSF3frd.png?raw=true" width=500/>
