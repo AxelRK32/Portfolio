@@ -31,5 +31,5 @@ I created a public vector variable to represent the direction and distance of th
 
 <details>
   <summary>Looping area nodes</summary>
-  <img src=""/>
+  <img src="https://github.com/AxelRK32/Portfolio/blob/main/3DAsteroids/Images/S43FDgfs.png?raw=true" width=800/>
 </details>
