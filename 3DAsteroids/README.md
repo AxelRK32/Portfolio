@@ -36,8 +36,8 @@ I created a public vector variable to represent the direction and distance of th
 
 After implementing this feature, it became clear that this feature works much better in a 2D game. Seeing asteroids just disappearing and appearing behind you in a 3D environment was confusing for the player. To help with this, I created a blueprint that could spawn a portal/black hole where the asteroid would teleport. It's designed similarly to the looping area with the large box collider. The difference is that it calculates the asteroids direction and spawns in a portal/black hole a bit ahead of their flight path. I then simply place these portal spawner blueprint just before the looping blueprints. 
 
-![]()
+![](https://github.com/AxelRK32/Portfolio/blob/main/3DAsteroids/Images/asteroid%20portal.gif)
 <details>
   <summary>Portal/Black hole nodes</summary>
-  <img src=""/>
+  <img src="https://github.com/AxelRK32/Portfolio/blob/main/3DAsteroids/Images/gaGA32f.png?raw=true" width=800/>
 </details>
