@@ -10,7 +10,7 @@ This was a project that I made to learn the basics of Unreal Engine. It is my at
 Some of the more notable features that I made for this is the player, asteroid behaviour, the looping of the arena and the remaining asteroids counter. 
 
 ## -Asteroids
-Since the asteroids are the central focus of the game, I spent a lot of time tweeking and reworking it. In order to easily seperate each asteroid type, I made them into three different blueprints for each size. When an asteroid is first spawned in, it first gets a random asteroid model from a list. After that they get a downward force applied along with some random force in the other directions. Since each asteroid has gravity and linear/angular damping turned off, the asteroids will continue falling as the same pace endlessly. The final thing that the asteroid does when spawning, is add itself to the asteroid counters list.  
+Since the asteroids are the central focus of the game, I spent a lot of time tweeking and reworking their behaviour. In order to easily seperate each asteroid type, I made them into three different blueprints for each size. When an asteroid is first spawned in, it first gets a random asteroid model from a list. After that they get a downward force applied along with some random force in the other directions. Since each asteroid has gravity and linear/angular damping turned off, the asteroids will continue falling as the same pace endlessly. The final thing that the asteroid does when spawning, is add itself to the asteroid counters list.  
 
 <details>
   <summary>Starting nodes snippet for an asteroid</summary>
@@ -22,4 +22,14 @@ The big and medium sized asteroids have custom events for splitting that get cal
 <details>
   <summary>Shot and Split node snippet</summary>
   <img src="https://github.com/AxelRK32/Portfolio/blob/main/3DAsteroids/Images/UjhjHJ45.png?raw=true" width=800/>
+</details>
+
+## -Looping Arena
+Since the game revolves around shooting the asteroids until they are all destroyed, I needed some way to keep the asteroids and the player inside a small area. I took inspiration from the original 2D version where the player and asteroids would loop around to the other side whenever they hit the edge of the gamescreen.  
+I created a blueprint with a large box collider. Whenever an actor overlaps the box collider, It simply teleports the actor a set length away from the looping blueprint.
+I created a public vector variable to represent the direction and distance of the teleport, so that I can use the same blueprint for every border and only change one value of the vector variable for each wall, floor and ceiling. 
+
+<details>
+  <summary>Looping area nodes</summary>
+  <img src=""/>
 </details>
