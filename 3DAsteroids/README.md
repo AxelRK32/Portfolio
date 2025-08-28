@@ -41,3 +41,12 @@ After implementing this feature, it became clear that this feature works much be
   <summary>Portal/Black hole nodes</summary>
   <img src="https://github.com/AxelRK32/Portfolio/blob/main/3DAsteroids/Images/gaGA32f.png?raw=true" width=800/>
 </details>
+
+## -Asteroid Counter
+To keep the gameploop in check, I needed a way to keep track of how many asteroids are still floating around. It was fairly straightforward to simply make each asteroid add and remove themselves from a list. Whenever the size of that list became zero, the game enables the button used to spawn the next wave. The counter blueprint also has a custom event for adding score for each asteroid that gets destroyed. 
+
+<details>
+  <summary>Asteroid Counter nodes</summary>
+  <img src=""/>
+  <img src=""/>
+</details>
