@@ -47,6 +47,6 @@ To keep the gameploop in check, I needed a way to keep track of how many asteroi
 
 <details>
   <summary>Asteroid Counter nodes</summary>
-  <img src=""/>
-  <img src=""/>
+  <img src="https://github.com/AxelRK32/Portfolio/blob/main/3DAsteroids/Images/dsfaFDS3.png?raw=true" width=900/>
+  <img src="https://github.com/AxelRK32/Portfolio/blob/main/3DAsteroids/Images/FDsadf3.png?raw=true" width=800/>
 </details>
