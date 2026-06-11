@@ -1,6 +1,6 @@
 # Internship at Simlogic
 
-## _Brief description on my intenship at Simlogic_
+## _Brief description of my internship at Simlogic_
 My internship at Simlogic lasted for 6 months, and my role was as a programmer/developer for their VR platform. The application was developed for the purpose of training medical staff.
 
 ## _Tools used_
