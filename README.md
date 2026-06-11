@@ -25,6 +25,18 @@ Team: 4 Programmers and 3 Artists
 
 ---
 
+# Internships
+---
+
+## [_SimLogic_](/SimLogic) ← Click for more info 
+Internship duration: _2025 december - 2026 june_
+
+Engine: Unity VR  
+Genre: Medical simulation, VR  
+My Role: Programmer, Tester, Developer  
+
+---
+
 # Solo Projects
 ---
 
@@ -33,6 +45,8 @@ Developed: _2025 march - 2025 april_
 
 Engine: Unreal Engine 5  
 Genre: Arcade, FPS, Space  
-Team: Just me
+Team: Me
 
 <img src="https://github.com/AxelRK32/Portfolio/blob/main/3DAsteroids/Images/dsfSF3frd.png?raw=true" width=500/>
+
+---
